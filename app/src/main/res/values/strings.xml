@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Close Kodi</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_address_label">Server address</string>
+    <string name="settings_port_label">Server port</string>
+    <string name="settings_username_label">Username</string>
+    <string name="settings_password_label">Password</string>
+    <string name="settings_certificate_label">Certificate file</string>
+    <string name="settings_certificate_button">Choose file…</string>
+    <string name="settings_selected_file">"Selected file: "</string>
+    <string name="preference_server" translatable="false">PREFERENCE_SERVER</string>
+    <string name="preference_port" translatable="false">PREFERENCE_PORT</string>
+    <string name="preference_username" translatable="false">PREFERENCE_USERNAME</string>
+    <string name="preference_password" translatable="false">PREFERENCE_PASSWORD</string>
+    <string name="preference_certificate" translatable="false">PREFERENCE_CERTIFICATE</string>
+</resources>

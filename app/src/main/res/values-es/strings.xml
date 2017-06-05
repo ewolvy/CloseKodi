@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cerrar Kodi</string>
+    <string name="settings_title">Opciones</string>
+    <string name="settings_address_label">Dirección del servidor</string>
+    <string name="settings_certificate_button">Elegir archivo…</string>
+    <string name="settings_certificate_label">Archivo de certificado</string>
+    <string name="settings_password_label">Contraseña</string>
+    <string name="settings_port_label">Puerto del servidor</string>
+    <string name="settings_username_label">Nombre de usuario</string>
+    <string name="settings_selected_file">"Archivo seleccionado: "</string>
+</resources>
