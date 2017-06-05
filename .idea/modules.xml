@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CloseKodi.iml" filepath="$PROJECT_DIR$/CloseKodi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CloseKodi.iml" filepath="$PROJECT_DIR$/CloseKodi.iml" />
       <module fileurl="file://$PROJECT_DIR$/libs/aFileDialog/library/app/aFileDialog.iml" filepath="$PROJECT_DIR$/libs/aFileDialog/library/app/aFileDialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/aFileDialog/library/app/aFileDialog.iml" filepath="$PROJECT_DIR$/libs/aFileDialog/library/app/aFileDialog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

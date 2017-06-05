@@ -13,4 +13,6 @@
     <string name="preference_username" translatable="false">PREFERENCE_USERNAME</string>
     <string name="preference_password" translatable="false">PREFERENCE_PASSWORD</string>
     <string name="preference_certificate" translatable="false">PREFERENCE_CERTIFICATE</string>
+    <string name="settings_not_full">You must fulfill all fields</string>
+    <string name="settings_not_set">Please fulfill the settings before using the big button</string>
 </resources>

@@ -43,7 +43,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         SharedPreferences preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
         mServer.setText(preferences.getString(getString(R.string.preference_server), "https://"));
-        mPort.setText(preferences.getString(getString(R.string.preference_port), "0"));
+        mPort.setText(String.valueOf(preferences.getInt(getString(R.string.preference_port), 0)));
         mUsername.setText(preferences.getString(getString(R.string.preference_username), ""));
         mPassword.setText(preferences.getString(getString(R.string.preference_password), ""));
 
@@ -106,11 +106,12 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onBackPressed() {
         if (mServer.getText().toString().equals("https://") ||
+                mServer.getText().toString().equals("") ||
                 Integer.parseInt(mPort.getText().toString()) == 0 ||
                 mUsername.getText().toString().equals("") ||
                 mPassword.getText().toString().equals("") ||
                 mCertificateFile.equals("")){
-
+            Toast.makeText(this, R.string.settings_not_full, Toast.LENGTH_LONG).show();
         } else {
             SharedPreferences preferences = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();

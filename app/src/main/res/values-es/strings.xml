@@ -9,4 +9,6 @@
     <string name="settings_port_label">Puerto del servidor</string>
     <string name="settings_username_label">Nombre de usuario</string>
     <string name="settings_selected_file">"Archivo seleccionado: "</string>
+    <string name="settings_not_full">Debes rellenar todos los campos</string>
+    <string name="settings_not_set">Por favor, rellene las opciones antes de usar el gran botón</string>
 </resources>
