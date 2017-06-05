@@ -1,7 +1,12 @@
 package com.mooo.ewolvy.closekodi;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -119,5 +124,67 @@ class SSLServer {
             }
         }
         return output.toString();
+    }
+
+    void execute(Context c){
+        doConnection connection = new doConnection();
+        connection.execute(c);
+    }
+
+    private class doConnection extends AsyncTask<Context, Void, String> {
+        String fullAddress;
+        Context currentContext;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            fullAddress = address;
+            fullAddress = fullAddress + ":";
+            fullAddress = fullAddress + port;
+            fullAddress = fullAddress + "/closeKodi/";
+        }
+
+        @Override
+        protected String doInBackground(Context... contexts) {
+            currentContext = contexts[0];
+            HttpsURLConnection urlConnection = setUpHttpsConnection(fullAddress, certificate);
+            String jsonResponse = "";
+            try {
+                if (urlConnection != null){
+                    urlConnection.setReadTimeout(10000 /* milliseconds */);
+                    urlConnection.setConnectTimeout(15000 /* milliseconds */);
+                    urlConnection.setRequestMethod("GET");
+                    String userCredentials = username;
+                    userCredentials = userCredentials + ":";
+                    userCredentials = userCredentials + password;
+                    String basicAuth = "Basic " + Base64.encodeToString(userCredentials.getBytes(), 0);
+                    urlConnection.setRequestProperty ("Authorization", basicAuth);
+                    urlConnection.connect();
+                    if (urlConnection.getResponseCode() == 200) {
+                        InputStream inputStream = urlConnection.getInputStream();
+                        try{
+                            jsonResponse = readFromStream(inputStream);
+                        }catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                Log.e(LOG_TAG, "IO Exception: " + e.toString());
+            }
+            return jsonResponse;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (result != null){
+                Toast toast = Toast.makeText(currentContext, result, Toast.LENGTH_SHORT);
+                toast.show();
+            }else{
+                Toast toast = Toast.makeText(currentContext, currentContext.getString(R.string.connection_error), Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
     }
 }

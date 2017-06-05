@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     username,
                     password,
                     certificate);
-
+            myServer.execute(this);
         }
     }
 }
